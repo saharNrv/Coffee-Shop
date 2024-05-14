@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa" dir='rtl'>
+    <html lang="fa" >
       <body >{children}</body>
     </html>
   )
