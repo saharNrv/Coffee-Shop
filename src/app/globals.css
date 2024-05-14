@@ -112,6 +112,7 @@ a {
   opacity: 0;
 }
 
+
 .articles_slider:hover .swiper-button-prev,
 .articles_slider:hover .swiper-button-next {
   opacity: 1;

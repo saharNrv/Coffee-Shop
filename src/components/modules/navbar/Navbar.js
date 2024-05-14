@@ -12,7 +12,7 @@ export default function Navbar() {
         <main >
             <div>
                 <Link href='/'>
-                    <img src="/images/logo.png" alt="Logo" />
+                    <img src="/images/logo_light.png" alt="Logo" />
                 </Link>
             </div>
 
