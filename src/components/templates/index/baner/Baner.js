@@ -20,7 +20,7 @@ export default function Baner() {
       <img src="/images/baner-2.jpeg" alt="Baner" />
     </SwiperSlide>
     <SwiperSlide>
-        <img src="/images/baner-1.jpeg" alt="Baner" />
+        <img src="https://set-coffee.com/wp-content/uploads/2023/12/slide.jpg" alt="Baner" />
     </SwiperSlide>
     <SwiperSlide>
       <img src="/images/baner-3.jpeg" alt="Baner" />
