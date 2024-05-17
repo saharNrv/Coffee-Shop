@@ -1,4 +1,5 @@
-import React from 'react';
+"use client"
+import React, { useEffect, useState } from 'react';
 import style from './Navbar.module.css';
 import Link from 'next/link';
 import { IoIosArrowDown } from "react-icons/io";
@@ -7,12 +8,32 @@ import { FaRegHeart } from "react-icons/fa";
 
 
 export default function Navbar() {
+
+    const [fixTop,setFixTop]=useState(false)
+
+    useEffect(()=>{
+
+        const fixNavbarToTop=()=>{
+            const currentScroll =window.pageYOffset
+            if(currentScroll>105){
+                setFixTop(true)
+            }else{
+                setFixTop(false)
+            }
+        }
+
+        window.addEventListener('scroll',fixNavbarToTop)
+
+        return ()=>window.removeEventListener('scroll',fixNavbarToTop)
+
+    },[])
+
   return (
-    <nav className={style.navbar}>
+    <nav className={fixTop ?style.navbar_fixed :style.navbar}>
         <main >
             <div>
                 <Link href='/'>
-                    <img src="/images/logo_light.png" alt="Logo" />
+                    <img src="/images/logo.png" alt="Logo" />
                 </Link>
             </div>
 
