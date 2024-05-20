@@ -1,5 +1,6 @@
 import AOSIniit from '@/utils/aos'
 import './globals.css'
+import ScrollToTop from '@/utils/scrollToTop'
 
 
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
       <body >
         <AOSIniit/>
         {children}
+        <ScrollToTop/>
         </body>
     </html>
   )
