@@ -1,4 +1,4 @@
-import { generateAccessToken, hashPassword } from "@/utils/auth";
+import { generateAccessToken, hashPassword, validateEmail, validatePassword, validatePhone } from "@/utils/auth";
 import connectToDB from "../../../../../configs/db";
 import userModel from "../../../../../models/User";
 import { roles } from "@/utils/constants";
@@ -10,6 +10,18 @@ export async function POST(req) {
     const { name, phone, email, password } = body
 
     //validations
+    const emailVali = validateEmail(email)
+    if(!emailVali){
+        return Response.json({message:'email is not valid'},{status:401})
+    }
+    const phoneVali = validatePhone(phone)
+    if(!phoneVali){
+        return Response.json({message:'phone is not valid'},{status:401})
+    }
+    const passwordVali = validatePassword(password)
+    if(!passwordVali){
+        return Response.json({message:'passwprd is not valid'},{status:401})
+    }
 
     const userExistent = await userModel.findOne({
         $or: [{ name }, { email }, { phone }]
