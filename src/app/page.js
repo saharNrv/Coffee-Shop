@@ -4,7 +4,7 @@ import Articles from "@/components/templates/index/articles/Articles";
 import Baner from "@/components/templates/index/baner/Baner";
 import Latest from "@/components/templates/index/latest/Latest";
 import Promote from "@/components/templates/index/promote/Promote";
-import { authUser } from "@/utils/auth";
+// import { authUser } from "@/utils/auth";
 
 
 

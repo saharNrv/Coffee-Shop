@@ -9,7 +9,7 @@ const page = async () => {
 
   return (
     <>
-      <Navbar  />
+      <Navbar />
       {/* <Breadcrumb route={"درباره ما"} /> */}
       <div className={styles.container}>
         <section>
