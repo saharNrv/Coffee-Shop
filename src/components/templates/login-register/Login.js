@@ -41,6 +41,14 @@ const Login = ({ showRegisterForm }) => {
       body:JSON.stringify(user)
     })
     console.log('res=>',res);
+
+    if(res.status===200){
+      showSwal("با موفقیت وارد شدین","success","ورود به پنل کاربری")
+    }else if(res.status===422 || res.status ===401){
+      showSwal("کاربری با این اطلاعات یافت نشد","error","تلاش مجدد")
+    }else if(res.status===419){
+      showSwal("ایمیل یا پسوورد صحیح نیست","error","تلاش مجدد")
+    }
   }
 
 

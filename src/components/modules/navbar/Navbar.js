@@ -7,7 +7,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 
 
-export default function Navbar() {
+export default function Navbar({isLogin}) {
 
     const [fixTop,setFixTop]=useState(false)
 
@@ -56,24 +56,31 @@ export default function Navbar() {
                 <li>
                     <Link href="/rules">قوانین</Link>
                 </li>
-                <li>
-                    <Link href="/login-register">ورود \ عضویت</Link>
-                </li>
-                {/* start My-account section */}
-                {/* <div className={style.dropdown}>
-                    <Link href="p-user">
-                        <IoIosArrowDown className={style.dropdown_icons}/>
-                        حساب کاربری
-                        </Link>
-                    <div className={style.dropdown_content}>
-                        <Link href='p-user/orders'>سفارشات</Link>
-                        <Link href='/p-user/tickets'>تیکت های پشتیبانی</Link>
-                        <Link href='p-user/wishlist'>علاقه مندی ها</Link>
-                        <Link href='p-user/account-details'>جزیات اکانت</Link>
-
+                {
+                    isLogin?(
+                        <li>
+                        <Link href="/login-register">ورود \ عضویت</Link>
+                    </li>
+                    ):(
+                        <div className={style.dropdown}>
+                        <Link href="p-user">
+                            <IoIosArrowDown className={style.dropdown_icons}/>
+                            حساب کاربری
+                            </Link>
+                        <div className={style.dropdown_content}>
+                            <Link href='p-user/orders'>سفارشات</Link>
+                            <Link href='/p-user/tickets'>تیکت های پشتیبانی</Link>
+                            <Link href='p-user/wishlist'>علاقه مندی ها</Link>
+                            <Link href='p-user/account-details'>جزیات اکانت</Link>
+    
+                        </div>
+    
                     </div>
-
-                </div> */}
+                    )
+                }
+               
+                {/* start My-account section */}
+               
                 {/* finish My-account section */}
 
             </ul>
