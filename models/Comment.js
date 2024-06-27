@@ -17,14 +17,14 @@ const commentSchema = new mongoose.Schema({
     },
     score: {
         type: Number,
-        required: true
+        required: false
     },
     date: {
         type: Date,
         default: () => Date.now(),
         immutable: false
     },
-    product: {
+    productID: {
         type: mongoose.Types.ObjectId,
         ref: 'Product'
     }

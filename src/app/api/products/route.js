@@ -41,3 +41,10 @@ export async function POST(req) {
         return Response.json({ message: err }, { status: 500 })
     }
 }
+
+
+export async function GET (){
+    const products = await productModel.find({},"-__v").populate("comments")
+
+    return Response.json(products)
+}
