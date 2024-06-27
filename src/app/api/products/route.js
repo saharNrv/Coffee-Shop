@@ -19,6 +19,7 @@ export async function POST(req) {
             suitableFor,
             smell,
             tags,
+            
 
         } = body
 
@@ -30,7 +31,8 @@ export async function POST(req) {
             weight,
             suitableFor,
             smell,
-            tags,
+            tags,    
+         
         })
 
         return Response.json({ message: 'create product successfully', data: product }, { status: 201 })

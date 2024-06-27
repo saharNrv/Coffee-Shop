@@ -34,7 +34,8 @@ const productSchema = new mongoose.Schema({
     },
     score: {
         type: Number,
-        required: true
+        required:false
+       
     },
     tags: {
         type: [String],
@@ -47,7 +48,8 @@ const productSchema = new mongoose.Schema({
                 ref: 'Comment'
             }
         ],
-        required: true
+        required:false
+        
     },
 
 })
