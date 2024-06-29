@@ -16,6 +16,8 @@ const product = async ({ params }) => {
   const productID = params.id
   connectToDB()
   const product = await productModel.findOne({ _id: productID }).populate("comments")
+
+  const relatedProducts =await productModel.find({smell:product.smell})
   
   return (
     <div className={styles.container}>
@@ -26,9 +28,9 @@ const product = async ({ params }) => {
           <Gallery />
         </div>
         <Tabs  product={JSON.parse(JSON.stringify(product))} />
-        <MoreProducts />
+        <MoreProducts relatedProducts={relatedProducts} />
       </div>
-      <Footer />
+      <Footer  />
     </div>
   );
 };

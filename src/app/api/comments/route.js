@@ -10,7 +10,14 @@ export async function POST(req) {
         const reqBody = await req.json()
         const { username, body, email,score, productID } = reqBody
 
-        const comment = await commentModel.create({ username, body, email,score, productID })
+        const comment = await commentModel.create({ 
+            username,
+             body,
+             email,
+            score,
+            isAccess: false,
+            productID
+         })
 
         const updateProduct =await productModel.findOneAndUpdate({
             _id:productID

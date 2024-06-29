@@ -5,7 +5,7 @@ import CommentForm from "./CommentForm";
 const Comments = ({productID ,comments}) => {
   return (
     <div>
-      <p>نظرات (7) :</p>
+      <p>نظرات ({comments.filter((comment) => comment.isAccess).length}) :</p>
       <hr />
 
       <main className={styles.comments}>
@@ -18,7 +18,11 @@ const Comments = ({productID ,comments}) => {
             {
               comments.map(comment=>(
 
-                <Comment key={comment._id} {...comment}/>
+                comments.isAccess &&(
+
+                  <Comment key={comment._id} {...comment}/>
+                )
+
               ))
             }
            

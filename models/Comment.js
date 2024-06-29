@@ -19,6 +19,10 @@ const commentSchema = new mongoose.Schema({
         type: Number,
         default:5
     },
+    isAccess: {
+        type: Boolean,
+        default:false
+    },
     date: {
         type: Date,
         default: () => Date.now(),
