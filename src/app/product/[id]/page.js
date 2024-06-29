@@ -6,20 +6,26 @@ import MoreProducts from "@/components/templates/product/MoreProducts";
 
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
+import productModel from "@/models/Product";
+import connectToDB from "@/configs/db";
 // import { authUser } from "@/utils/auth";
 
-const product = async () => {
+const product = async ({ params }) => {
   // const user = await authUser();
 
+  const productID = params.id
+  connectToDB()
+  const product = await productModel.findOne({ _id: productID }).populate("comments")
+  
   return (
     <div className={styles.container}>
-      <Navbar  />
+      <Navbar />
       <div data-aos="fade-up" className={styles.contents}>
         <div className={styles.main}>
-          <Details />
+          <Details product={JSON.parse(JSON.stringify(product))} />
           <Gallery />
         </div>
-        <Tabs />
+        <Tabs product={JSON.parse(JSON.stringify(product))} />
         <MoreProducts />
       </div>
       <Footer />

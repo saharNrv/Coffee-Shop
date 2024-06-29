@@ -3,7 +3,7 @@ require ('./Product')
 
 const commentSchema = new mongoose.Schema({
 
-    usernam: {
+    username: {
         type: String,
         required: true
     },
@@ -17,7 +17,7 @@ const commentSchema = new mongoose.Schema({
     },
     score: {
         type: Number,
-        required: false
+        required: true
     },
     date: {
         type: Date,

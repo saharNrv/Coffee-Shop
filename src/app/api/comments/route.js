@@ -28,3 +28,9 @@ export async function POST(req) {
     }
 
 }
+
+export async function GET (){
+    const comments = await commentModel.find({},"-__v")
+
+    return Response.json(comments)
+}
