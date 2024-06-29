@@ -59,7 +59,7 @@ const Tabs = ({product}) => {
           <MoreInfoes product={product}/>
         </section>
         <section className={styles.tabs_content}>
-          <Comments comments={product.comments} />
+          <Comments productID={product._id} comments={product.comments} />
         </section>
       </div>
     </div>

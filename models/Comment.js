@@ -17,7 +17,7 @@ const commentSchema = new mongoose.Schema({
     },
     score: {
         type: Number,
-        required: true
+        default:5
     },
     date: {
         type: Date,
