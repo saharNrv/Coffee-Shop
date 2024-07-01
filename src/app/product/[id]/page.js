@@ -8,6 +8,7 @@ import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
 import productModel from "@/models/Product";
 import { authUser } from "@/utils/serverHelpers";
+import connectToDB from "@/configs/db";
 
 const product = async ({ params }) => {
   const user = await authUser();
