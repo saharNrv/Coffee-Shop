@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styles from "./login.module.css";
 import Link from "next/link";
 import Sms from "./Sms";
-import { showSwal } from "@/utils/helperClass";
-import { validateEmail, validatePassword } from "@/utils/auth";
+import { showSwal } from "../../../utils/helperClass";
+import { validateEmail, validatePassword } from "../../../utils/auth";
 const Login = ({ showRegisterForm }) => {
 
   const [isLoginWithOtp, setIsLoginWithOtp] = useState(false)

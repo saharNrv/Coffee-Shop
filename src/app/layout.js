@@ -1,6 +1,6 @@
-import AOSIniit from '@/utils/aos'
+import AOSIniit from '../utils/aos'
 import './globals.css'
-import ScrollToTop from '@/utils/scrollToTop'
+import ScrollToTop from '../utils/scrollToTop'
 
 
 

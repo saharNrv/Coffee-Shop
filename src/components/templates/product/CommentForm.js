@@ -1,7 +1,7 @@
 import { IoMdStar } from "react-icons/io";
 import styles from "./commentForm.module.css";
 import { useState } from "react";
-import { showSwal } from "@/utils/helperClass";
+import { showSwal } from "../../../utils/helperClass";
 const CommentForm = ({productID}) => {
 
   const [username, setUsername] = useState('')

@@ -1,7 +1,7 @@
-import { generateAccessToken, hashPassword, validateEmail, validatePassword, validatePhone } from "@/utils/auth";
+import { generateAccessToken, hashPassword, validateEmail, validatePassword, validatePhone } from "../../../../utils/auth";
 import connectToDB from "../../../../../configs/db";
 import userModel from "../../../../../models/User";
-import { roles } from "@/utils/constants";
+import { roles } from "../../../../utils/constants";
 
 export async function POST(req) {
     connectToDB()
