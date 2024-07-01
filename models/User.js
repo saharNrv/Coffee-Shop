@@ -1,13 +1,14 @@
 const mongoose = require('mongoose')
 
-const userSchema = mongoose.Schema({
-    name:{
-        type:String,
-        required:true
+
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        require: true
     },
-    email:{
-        type:String,
-        required:false
+    email: {
+        type: String,
+        require: false
     },
     phone:{
         type:String,
@@ -19,13 +20,15 @@ const userSchema = mongoose.Schema({
     },
     role:{
         type:String,
-        default:'USER'
+        default:'USER',
+        require: false
     },
     refreshToken:{
         type:String,
+        require: false
     },
 })
 
-const userModel = mongoose.models.User || mongoose.model('User',userSchema)
+const userModel = mongoose.models.Users || mongoose.model('Users', userSchema)
 
 export default userModel
