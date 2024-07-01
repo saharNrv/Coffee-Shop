@@ -1,10 +1,5 @@
-
 import { sign, verify } from "jsonwebtoken"
 import { hash, compare } from "bcryptjs"
-import userModel from "../../models/User"
-// import { cookies } from "next/headers"
-
-
 
 const hashPassword = async (password) => {
     const hashedPassword = await hash(password, 12)
@@ -57,8 +52,6 @@ const validatePassword = (password) => {
     return pattern.test(password)
 }
 
-
-
 export {
     hashPassword,
     verifyPassword,
@@ -68,5 +61,4 @@ export {
     validateEmail,
     validatePhone,
     validatePassword,
-    
 }

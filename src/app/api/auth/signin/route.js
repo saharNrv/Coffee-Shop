@@ -1,4 +1,4 @@
-import { generateAccessToken, generateRefreshToken, validateEmail, validatePassword, verifyPassword } from "@/utils/auth"
+import { generateAccessToken, generateRefreshToken, validateEmail, validatePassword, verifyPassword } from "../../../../utils/auth"
 import connectToDB from "../../../../../configs/db"
 import userModel from "../../../../../models/User"
 

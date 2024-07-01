@@ -1,9 +1,8 @@
 import { useState } from "react";
 import styles from "./register.module.css";
 import Sms from "./Sms";
-import swal from "sweetalert";
-import { showSwal } from "@/utils/helperClass";
-import { validateEmail, validatePassword, validatePhone } from "@/utils/auth";
+import { showSwal } from "../../../utils/helperClass";
+import { validateEmail, validatePassword, validatePhone } from "../../../utils/auth";
 
 const Register = ({ showloginForm }) => {
 

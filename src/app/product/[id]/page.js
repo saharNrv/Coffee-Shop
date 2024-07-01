@@ -7,11 +7,10 @@ import MoreProducts from "@/components/templates/product/MoreProducts";
 import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
 import productModel from "@/models/Product";
-import connectToDB from "@/configs/db";
-// import { authUser } from "@/utils/auth";
+import { authUser } from "@/utils/serverHelpers";
 
 const product = async ({ params }) => {
-  // const user = await authUser();
+  const user = await authUser();
 
   const productID = params.id
   connectToDB()

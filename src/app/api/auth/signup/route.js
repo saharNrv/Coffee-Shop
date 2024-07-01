@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { generateAccessToken, hashPassword, validateEmail, validatePassword, validatePhone } from "@/utils/auth";
 import connectToDB from "@/configs/db";
 import userModel from "@/models/User";
 import { roles } from "@/utils/constants";
+=======
+import { generateAccessToken, hashPassword, validateEmail, validatePassword, validatePhone } from "../../../../utils/auth";
+import connectToDB from "../../../../../configs/db";
+import userModel from "../../../../../models/User";
+import { roles } from "../../../../utils/constants";
+>>>>>>> 13ca260a32e98540d309f613b76708fa874702db
 
 export async function POST(req) {
     connectToDB()
