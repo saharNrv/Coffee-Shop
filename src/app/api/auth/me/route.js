@@ -11,10 +11,10 @@ export async function GET(req) {
     if (token) {
         const tokenPayload = verifyAccessToken(token.value)
         if (tokenPayload) {
-            user = await userModel.findOne({ email: tokenPayload.email })
+            user = await userModel.findOne({ email: tokenPayload.email },"-password -__v -refreshToken") 
 
         }
-        return Response.json({user},"-password -refreshToken -__v")
+        return Response.json(user)
     }else{
 
         return Response .json({
