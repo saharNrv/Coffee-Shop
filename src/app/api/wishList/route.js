@@ -10,7 +10,12 @@ export async function POST(req) {
         const body = await req.json()
         const { user, product } = body
 
-        const wishList = await wishListModel.create({ user, product })
+        const wish = await wishListModel.findOne({ user, product })
+        if(!wish){
+
+            const wishList = await wishListModel.create({ user, product })
+        }
+
 
         return Response.json({ message: 'product add to wishList successfully' }, { status: 201 })
 

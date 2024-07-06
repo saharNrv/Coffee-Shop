@@ -34,7 +34,7 @@ export async function POST(req) {
     }
 
     const hashedPassword = await hashPassword(password)
-    const accessToken = generateAccessToken({ name })
+    const accessToken = generateAccessToken({ name,email })
 
     const users = await userModel.find({})
 

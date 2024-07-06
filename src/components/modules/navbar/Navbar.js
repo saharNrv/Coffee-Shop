@@ -57,7 +57,7 @@ export default function Navbar({isLogin}) {
                     <Link href="/rules">قوانین</Link>
                 </li>
                 {
-                    isLogin?(
+                    !isLogin?(
                         <li>
                         <Link href="/login-register">ورود \ عضویت</Link>
                     </li>

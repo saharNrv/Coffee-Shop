@@ -41,7 +41,8 @@ export async function POST(req) {
         return Response.json({ message: 'user Logged in successfully' }, {
             status: 200,
             headers: {
-                'Set-Cookies': `token=${accessToken};path=/;httpOnly=true`
+                'Set-Cookie': `token=${accessToken}; path=/; httpOnly=true`
+
             }
         })
 

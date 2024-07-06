@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import UserModel from "@/models/User";
+import userModel from "@/models/User";
 import { verifyAccessToken } from "./auth";
 
 const authUser = async () => {
@@ -9,7 +9,7 @@ const authUser = async () => {
   if (token) {
     const tokenPayload = verifyAccessToken(token.value);
     if (tokenPayload) {
-      user = await UserModel.findOne({ email: tokenPayload.email });
+      user = await userModel.findOne({ email: tokenPayload.email });
     }
   }
 

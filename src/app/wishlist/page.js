@@ -13,7 +13,7 @@ import { FaRegHeart } from "react-icons/fa";
 
 const page = async () => {
   let wishes = [];
-  connectToDB();
+   connectToDB();
   const user = await authUser();
   if (user) {
     wishes = await wishListModel.find({ user: user._id })

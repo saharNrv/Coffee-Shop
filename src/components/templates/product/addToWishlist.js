@@ -11,14 +11,16 @@ import { CiHeart } from "react-icons/ci";
 
     const authUSer= async ()=>{
       const res = await fetch('/api/auth/me')
+      console.log(res);
       if(res.status===200){
         const data= await res.json()
         setUser(data)
       }
 
     }
-
+    
     authUSer()
+    
 
   },[])
   const addToWishlist = async (event) => {
@@ -32,7 +34,7 @@ import { CiHeart } from "react-icons/ci";
     product:productID
    }
 
-   const res = await fetch('/api/wishList',{
+   const res = await fetch('/api/wishlist',{
     method:'POST',
     headers:{
       'Content-Type':'application/json'
