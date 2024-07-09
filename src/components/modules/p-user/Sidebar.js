@@ -52,7 +52,7 @@ const Sidebar = () => {
               <FaShoppingBag />
               سفارش ها
             </Link>
-            <Link href={"/p-user/tickets"}>
+            <Link href={"/p-user/account-details"}>
               <MdSms />
               تیکت های پشتیبانی
             </Link>
