@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { TbListDetails } from "react-icons/tb";
 import Link from "next/link";
 import swal from "sweetalert";
+import { showSwal } from "@/utils/helperClass";
 
 const Sidebar = () => {
   const path = usePathname();
@@ -18,8 +19,21 @@ const Sidebar = () => {
       title: "آیا از خروج اطمینان دارید؟",
       icon: "warning",
       buttons: ["نه", "آره"],
-    }).then((result) => {
-      //code
+    }).then(async (result) => {
+      if(result){
+
+        const res = await fetch('/api/auth/signout',{
+          method:'POST'
+        })
+        if(res.status===200){
+          swal({
+            title: "خروج با موفقیت انجام شد",
+            icon: "success",
+            buttons: "تایید",
+          }).then(() => location.replace('/'))
+
+        }
+      }
     });
   };
   return (
