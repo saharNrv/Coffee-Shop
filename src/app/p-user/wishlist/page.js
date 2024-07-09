@@ -3,15 +3,15 @@ import styles from "@/styles/p-user/wishlist.module.css";
 import Product from "@/components/templates/p-user/wishlist/Product";
 import connectToDB from "@/configs/db";
 import { authUser } from "@/utils/serverHelpers";
-import WishlistModel from "@/models/Wishlist";
+import wishListModel from "@/models/WishList";
 
 const page = async () => {
   connectToDB();
   const user = await authUser();
-  const wishlist = await WishlistModel.find({ user: user._id }).populate(
+  const wishlist = await wishListModel.find({ user: user._id }).populate(
     "product"
   );
-  console.log(wishlist);
+  
 
   return (
     <UserPanelLayout>
@@ -24,9 +24,10 @@ const page = async () => {
             wishlist.map((wish) => (
               <Product
                 key={wish._id}
-                name={wish.product.name}
+                name={wish.product.title}
                 price={wish.product.price}
                 score={wish.product.score}
+                productID={String(wish.product._id)}
               />
             ))}
         </div>

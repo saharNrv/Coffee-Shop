@@ -1,17 +1,31 @@
 "use client";
+import { showSwal } from "@/utils/helperClass";
 import styles from "./product.module.css";
 import Link from "next/link";
 import { FaRegStar } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
 import swal from "sweetalert";
-const Card = ({ price, score, name }) => {
-  const removeProduct = (productId) => {
+const Card = ({ price, score, name ,productID}) => {
+  const removeProduct = () => {
     swal({
       title: "آیا از حذف محصول اطمینان دارید؟",
       icon: "warning",
       buttons: ["نه", "آره"],
-    }).then((result) => {
-      //code
+    }).then( async (result) => {
+      if(result){
+
+        const res= await fetch(`/api/wishlist/${productID}`,{
+          method:'DELETE'
+        })
+
+        console.log(res);
+        if(res.status===200){
+          showSwal("محصول با موفقیت حذف شد", "success", "تایید")
+          location.reload()
+
+        }
+
+      }
     });
   };
 
