@@ -13,8 +13,8 @@ export default async function Home() {
   const user = await authUser()
   return (
     <>
-      <Navbar isLogin={user} />
-      <Navbar  />
+      <Navbar isLogin={user ? true : false} />
+      {/* <Navbar  /> */}
       <Baner />
       <Latest />
       <Promote />

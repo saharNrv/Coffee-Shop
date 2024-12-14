@@ -22,6 +22,7 @@ export async function POST(req) {
             
 
         } = body
+        
 
         const product = await productModel.create({
             title,

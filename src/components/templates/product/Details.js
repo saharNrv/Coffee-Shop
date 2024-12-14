@@ -30,8 +30,9 @@ const Details = ({ product }) => {
               <FaStar key={index} />
             ))
           }
+          {/* product.score */}
           {
-            new Array(5 - product.score).fill(0).map((item, index) => (
+            new Array(5 -product.score).fill(0).map((item, index) => (
 
               <FaRegStar key={index} />
             ))

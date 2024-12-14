@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 const Layout = async ({ children }) => {
 
   const user = await authUser()
-  console.log(user)
+ 
   if(!user){
     redirect("/login-register")
   }

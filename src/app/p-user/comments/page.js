@@ -4,16 +4,18 @@ import React from "react";
 import connectToDB from "@/configs/db";
 import Commentmodel from "@/models/Comment";
 import { authUser } from "@/utils/serverHelpers";
+import commentModel from "@/models/Comment";
 
 const page = async () => {
   connectToDB();
   const user = await authUser();
-  const comments = await Commentmodel.find(
-    { user: String(user._id) },
-    "-__v"
-  ).populate("productID", "title");
+//   const comments = await Commentmodel.find(
+//     { user: String(user._id) },
+//     "-__v"
+//   ).populate("productID", "name");
 
-  console.log(comments);
+const comments = await commentModel.find({}).populate("productID", "title")
+  console.log('comments=>',comments);
 
   return (
     <Layout>

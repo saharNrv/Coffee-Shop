@@ -41,8 +41,10 @@ import { CiHeart } from "react-icons/ci";
     },
     body:JSON.stringify(wish)
    })
-
-   console.log(" wish res", res);
+   
+   if(res.status === 201){
+    showSwal("محصول مورد نظر به علاقه مندی ها اضافه شد","success","اکی")
+   }
     
   };
 

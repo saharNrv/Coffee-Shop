@@ -6,6 +6,7 @@ import Orders from "@/components/templates/p-user/index/Orders";
 const page = () => {
   return (
     <Layout>
+      
       <main>
         <section className={styles.boxes}>
           <Box title="مجموع تیکت ها " value="20" />

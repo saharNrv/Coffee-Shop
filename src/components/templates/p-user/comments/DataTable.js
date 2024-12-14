@@ -6,6 +6,8 @@ import swal from "sweetalert";
 import { showSwal } from "@/utils/helperClass";
 
 export default function DataTable({ comments, title }) {
+  console.log('comments===',comments);
+  
   const showCommentBody = (commentBody) => {
     showSwal(commentBody, undefined, "اوکی");
   };
@@ -46,7 +48,7 @@ export default function DataTable({ comments, title }) {
                 </td>
                 <td>
                   <button type="button" className={styles.no_check}>
-                    {comment.isAccept ? "تایید شده" : "در انتظار تایید"}
+                    {comment.isAccess ? "تایید شده" : "در انتظار تایید"}
                   </button>
                 </td>
                 <td>

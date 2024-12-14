@@ -6,6 +6,10 @@ import { FaRegStar } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
 import swal from "sweetalert";
 const Card = ({ price, score, name ,productID}) => {
+
+  console.log(score);
+  
+  
   const removeProduct = () => {
     swal({
       title: "آیا از حذف محصول اطمینان دارید؟",
@@ -42,10 +46,11 @@ const Card = ({ price, score, name ,productID}) => {
       <p dir="rtl">{name}</p>
       <div>
         <div>
-          {new Array(score).fill(0).map((item, index) => (
+          {/* score===3 */}
+          {new Array(score ? score: 0).fill(0).map((item, index) => ( 
             <IoMdStar key={index} />
           ))}
-          {new Array(5 - score).fill(0).map((item, index) => (
+          {new Array(score ?5 - score :0).fill(0).map((item, index) => (
             <FaRegStar key={index} />
           ))}
         </div>

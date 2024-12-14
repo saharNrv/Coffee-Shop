@@ -1,6 +1,7 @@
 import { sign, verify } from "jsonwebtoken"
 import { hash, compare } from "bcryptjs"
 
+
 const hashPassword = async (password) => {
     const hashedPassword = await hash(password, 12)
     return hashedPassword
@@ -35,6 +36,7 @@ const generateRefreshToken = (data) => {
     })
     return token
 }
+// -------------------validation
 
 const validateEmail = (email) => {
 
@@ -51,6 +53,21 @@ const validatePassword = (password) => {
     const pattern = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/g
     return pattern.test(password)
 }
+// const authUser = async () => {
+//     connectToDB();
+//     const token = cookies().get("token");
+//     let user = null;
+  
+//     if (token) {
+//       const tokenPayload = verifyAccessToken(token.value);
+//       if (tokenPayload) {
+//         user = await UserModel.findOne({ email: tokenPayload.email });
+//       }
+//     }
+  
+//     return user;
+//   };
+  
 
 export {
     hashPassword,
@@ -61,4 +78,5 @@ export {
     validateEmail,
     validatePhone,
     validatePassword,
+    authUser
 }
