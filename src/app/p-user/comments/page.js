@@ -15,7 +15,7 @@ const page = async () => {
 //   ).populate("productID", "name");
 
 const comments = await commentModel.find({}).populate("productID", "title")
-  console.log('comments=>',comments);
+  
 
   return (
     <Layout>
