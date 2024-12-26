@@ -7,7 +7,7 @@ export async function POST (req) {
         const body = await req.json()
         const {title}=body
 
-        await departmentModel.creat({title})
+        await departmentModel.create({title})
 
         return Response.json({msg:"department creat successfully"},{status:200})
 
@@ -15,4 +15,11 @@ export async function POST (req) {
         return Response.json({err},{status:500})
 
     }
+}
+
+export async function GET () {
+    await connectToDB()
+   const data= await departmentModel.find({})
+    return Response.json(data)
+
 }

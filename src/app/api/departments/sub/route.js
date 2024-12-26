@@ -7,7 +7,7 @@ export async function POST (req) {
         const body = await req.json()
         const {title, department}=body
 
-        await subDepartmentModel.creat({title})
+        await subDepartmentModel.create({title,department})
 
         return Response.json({msg:"subdepartment creat successfully"},{status:200})
 
