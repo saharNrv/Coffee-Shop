@@ -78,5 +78,5 @@ export {
     validateEmail,
     validatePhone,
     validatePassword,
-    authUser
+    
 }

@@ -15,7 +15,7 @@ const schema = new mongoose.Schema(
     },
     user: {
       type: mongoose.Types.ObjectId,
-      ref:"User",
+      ref: "User",
       required: true,
     },
     department: {
@@ -32,6 +32,10 @@ const schema = new mongoose.Schema(
       type: Number,
       default: 1,
       enum: [1, 2, 3],
+    },
+    hasAnswer: {
+      type: Boolean,
+      default: false,
     },
   },
   {
