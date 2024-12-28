@@ -4,8 +4,10 @@ import Link from "next/link";
 import Sms from "./Sms";
 import { showSwal } from "../../../utils/helperClass";
 import { validateEmail, validatePassword } from "../../../utils/auth";
+import { useRouter } from "next/navigation";
 const Login = ({ showRegisterForm }) => {
 
+  const router =useRouter()
   const [isLoginWithOtp, setIsLoginWithOtp] = useState(false)
   const [emailOrPhone, setEmailOrPhone] = useState('')
   const [password, setPassword] = useState('')
@@ -43,7 +45,12 @@ const Login = ({ showRegisterForm }) => {
     console.log('res=>',res);
 
     if(res.status===200){
-      showSwal("با موفقیت وارد شدین","success","ورود به پنل کاربری")
+      swal({
+        title:"با موفقیت وارد شدین",
+        icon:"success",
+        buttons:"ورود به پنل کاربری"
+      }).then(()=>router.replace("/p-user"))
+      
     }else if(res.status===422 || res.status ===401){
       showSwal("کاربری با این اطلاعات یافت نشد","error","تلاش مجدد")
     }else if(res.status===419){
