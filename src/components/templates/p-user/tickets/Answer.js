@@ -1,7 +1,7 @@
 import styles from "./answer.module.css";
 
 const Answer = ({ type, title, body, createdAt,user}) => {
-  console.log(title);
+  
   
   return (
     <section
