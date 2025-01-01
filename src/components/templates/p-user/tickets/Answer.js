@@ -1,6 +1,8 @@
 import styles from "./answer.module.css";
 
 const Answer = ({ type, title, body, createdAt,user}) => {
+  // console.log('user',_id);
+  
   
   
   return (
@@ -11,7 +13,7 @@ const Answer = ({ type, title, body, createdAt,user}) => {
         <p> {new Date(createdAt).toLocaleDateString("fa-IR")}</p>
         <div>
           <div>
-            <p>{user.name}</p>
+            <p>{'user.name'}</p>
             <span>کاربر</span>
           </div>
           <img src="/images/shahin.jpg" alt="" />
