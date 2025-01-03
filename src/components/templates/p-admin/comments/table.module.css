@@ -148,3 +148,12 @@
   font-size: 1.7rem;
   border-radius: 5px;
 }
+
+.accept{
+  background-color: green;
+  color: white;
+}
+.reject{
+  background-color: red;
+  color: white;
+}
