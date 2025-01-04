@@ -34,7 +34,7 @@ const Tabs = ({ product }) => {
               onClick={() => setTab("comments")}
             >
               نظرات (
-              {product.comments.filter((comment) => comment.isAccept).length})
+              {product.comments.filter((comment) => comment.isAccess).length})
             </button>
           </li>
         </ul>

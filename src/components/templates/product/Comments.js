@@ -18,7 +18,7 @@ const Comments = ({productID ,comments}) => {
             {
               comments.map(comment=>(
 
-                comments.isAccess &&(
+                comment.isAccess &&(
 
                   <Comment key={comment._id} {...comment}/>
                 )
