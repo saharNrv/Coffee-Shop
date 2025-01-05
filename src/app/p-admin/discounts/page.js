@@ -1,23 +1,30 @@
-import React from "react";
+import Table from "@/components/templates/p-admin/discounts/Table";
 import Layout from "@/components/layouts/AdminPanelLayout";
-import styles from "@/components/templates/p-admin/users/table.module.css";
-import Table from "@/components/templates/p-admin/users/Table";
+import styles from "@/components/templates/p-admin/discounts/table.module.css";
 import connectToDB from "@/configs/db";
 import DiscountModel from "@/models/Discount";
+import AddDiscount from "@/components/templates/p-admin/discounts/AddDiscount";
 
-const page = async () => {
+const Discounts = async () => {
   connectToDB();
-  const discounts = await DiscountModel.find({}).lean();
+  const discounts = await DiscountModel.find({}).sort({ _id: -1 }).lean();
 
   return (
     <Layout>
-      {discounts.length !== 0 ? (
-        <h1>Off Code</h1>
-      ) : (
-        <h1>کد تخفیف وجود ندارد</h1>
-      )}
+      <main>
+        <AddDiscount />
+
+        {discounts.length === 0 ? (
+          <p className={styles.empty}>کد تخفیفی وجود ندارد</p>
+        ) : (
+          <Table
+            discounts={JSON.parse(JSON.stringify(discounts))}
+            title="لیست تخفیفات"
+          />
+        )}
+      </main>
     </Layout>
   );
 };
 
-export default page;
+export default Discounts;
