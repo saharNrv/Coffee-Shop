@@ -11,7 +11,7 @@ import { CiHeart } from "react-icons/ci";
 
     const authUSer= async ()=>{
       const res = await fetch('/api/auth/me')
-      console.log(res);
+     
       if(res.status===200){
         const data= await res.json()
         setUser(data)

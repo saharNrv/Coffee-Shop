@@ -1,3 +1,4 @@
+"use client"
 import { FaFacebookF, FaRegStar, FaStar, FaTwitter } from "react-icons/fa";
 import { IoCheckmark } from "react-icons/io5";
 import { CiHeart } from "react-icons/ci";
@@ -6,8 +7,50 @@ import { FaTelegram, FaLinkedinIn, FaPinterest } from "react-icons/fa";
 import styles from "./details.module.css";
 import Breadcrumb from "./Breadcrumb";
 import AddToWishlist from "./addToWishlist";
+import { useState } from "react";
+import { showSwal } from "@/utils/helperClass";
 
 const Details = ({ product }) => {
+
+  const [count, setCount] = useState(1)
+
+  const addToCart = () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || []
+    if (cart.length) {
+      const isInCart = cart.some((item) => item.id === product._id)
+      if (isInCart) {
+        cart.forEach(item => {
+          if (item.id === product._id) {
+            item.count = item.count + count
+          }
+          localStorage.setItem("cart", JSON.stringify(cart))
+          showSwal(" محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم")
+
+        });
+      } else {
+        const cartItem = {
+          id: product._id,
+          title: product.title,
+          price: product.price,
+          count
+        }
+        cart.push(cartItem)
+        localStorage.setItem("cart", JSON.stringify(cart))
+
+      }
+    } else {
+      const cartItem = {
+        id: product._id,
+        title: product.title,
+        price: product.price,
+        count
+      }
+      cart.push(cartItem)
+      localStorage.setItem("cart", JSON.stringify(cart))
+      showSwal(" محصول با موفقیت به سبد خرید اضافه شد", "success", "فهمیدم")
+    }
+
+  }
 
   return (
     <main style={{ width: "63%" }}>
@@ -32,7 +75,7 @@ const Details = ({ product }) => {
           }
           {/* product.score */}
           {
-            new Array(5 -product.score).fill(0).map((item, index) => (
+            new Array(5 - product.score).fill(0).map((item, index) => (
 
               <FaRegStar key={index} />
             ))
@@ -56,15 +99,17 @@ const Details = ({ product }) => {
       </div>
 
       <div className={styles.cart}>
-        <button>افزودن به سبد خرید</button>
+        <button onClick={addToCart}>افزودن به سبد خرید</button>
         <div>
-          <span>-</span>1<span>+</span>
+          <span onClick={() => setCount(count - 1)}>-</span>
+          {count}
+          <span onClick={() => setCount(count + 1)}>+</span>
         </div>
       </div>
 
       <section className={styles.wishlist}>
-        <AddToWishlist productID={product._id}/>
-       
+        <AddToWishlist productID={product._id} />
+
         <div>
           <TbSwitch3 />
           <a href="/">مقایسه</a>
