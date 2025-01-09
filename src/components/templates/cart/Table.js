@@ -13,6 +13,7 @@ const stateOptions = stateData();
 const Table = () => {
   const [cart, setCart] = useState([]);
   const [discount, setDiscount] = useState("")
+  const [totalPrice, setTotalPrice] = useState(0)
   const [stateSelectedOption, setStateSelectedOption] = useState(null);
   const [changeAddress, setChangeAddress] = useState(false);
 
@@ -21,17 +22,20 @@ const Table = () => {
     setCart(localCart);
   }, []);
 
-  const calcTotalPrice = () => {
-    let totalPrice = 0;
+  useEffect(calcTotalPrice, [cart])
+
+  function calcTotalPrice() {
+    let price = 0;
 
     if (cart.length) {
-      totalPrice = cart.reduce(
+      price = cart.reduce(
         (prev, current) => prev + current.price * current.count,
         0
       );
     }
 
-    return totalPrice;
+    setTotalPrice(price)
+
   };
 
   const checkDiscount = async () => {
@@ -49,6 +53,11 @@ const Table = () => {
     } else if (res.status === 422) {
       return showSwal("کد تخفیف منقضی شده", "error", "تلاش مجدد")
     } else if (res.status === 200) {
+      const discountcode = await res.json()
+      const newPrice = totalPrice - (totalPrice * discountcode.percent) / 100
+      setTotalPrice(newPrice)
+
+
       return showSwal("کد تخفیف اعمال شد", "success", "فهمیدم")
     }
   }
@@ -145,7 +154,7 @@ const Table = () => {
 
         <div className={totalStyles.total}>
           <p>مجموع</p>
-          <p>{calcTotalPrice().toLocaleString()} تومان</p>
+          <p>{totalPrice.toLocaleString()} تومان</p>
         </div>
         <Link href={"/checkout"}>
           <button className={totalStyles.checkout_btn}>
