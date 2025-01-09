@@ -8,6 +8,11 @@ export async function PUT(req) {
         const { code } = body
 
         const discount = await discountModel.findOne({ code })
+        await discountModel.findOneAndUpdate({code},{
+            $inc:{
+                uses:1
+            }
+        })
 
         if (!discount) {
             return Response.json({ message: "code not found" }, { status: 404 })
