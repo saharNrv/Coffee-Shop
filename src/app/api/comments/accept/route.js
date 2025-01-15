@@ -1,9 +1,14 @@
 import connectToDB from "@/configs/db"
 import commentModel from "@/models/Comment"
+import { authAdmin } from "@/utils/serverHelpers"
 
 export async function PUT(req) {
 
     try {
+        const isAdmin = await authAdmin()
+        if(!isAdmin){
+            throw new Error("this api protected!!!")
+        }
         connectToDB()
         const body = await req.json()
         const { id } = body

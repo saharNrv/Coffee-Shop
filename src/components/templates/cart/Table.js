@@ -38,6 +38,10 @@ const Table = () => {
 
   };
 
+  const plusCount = ()=>{
+
+  }
+
   const checkDiscount = async () => {
 
     const res = await fetch("/api/discounts/use", {
@@ -82,7 +86,7 @@ const Table = () => {
                 <td>{(item.count * item.price).toLocaleString()} تومان</td>
                 <td className={styles.counter}>
                   <div>
-                    <span>-</span>
+                    <span >-</span>
                     <p>{item.count}</p>
                     <span>+</span>
                   </div>

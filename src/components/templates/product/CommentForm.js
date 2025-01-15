@@ -1,13 +1,14 @@
 import { IoMdStar } from "react-icons/io";
 import styles from "./commentForm.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { showSwal } from "../../../utils/helperClass";
-const CommentForm = ({productID}) => {
+const CommentForm = ({ productID }) => {
 
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [body, setBody] = useState('')
   const [score, setScore] = useState(5)
+  const [isSaveUser, setIsSaveUser] = useState(false)
 
   const scoreRegistration = (score) => {
 
@@ -16,9 +17,28 @@ const CommentForm = ({productID}) => {
 
   }
 
-  const submitComment = async ()=>{
+  useEffect(()=>{
 
-    const comment ={
+    const userInfo= JSON.parse(localStorage.getItem("userInfo"))
+
+    setUsername(userInfo.username)
+    setEmail(userInfo.email)
+
+  },[])
+
+  const submitComment = async () => {
+
+    if(isSaveUser){
+      const userInfo={
+        username,
+        email
+      }
+
+      localStorage.setItem("userInfo",JSON.stringify(userInfo))
+    }
+
+
+    const comment = {
       username,
       email,
       body,
@@ -26,20 +46,20 @@ const CommentForm = ({productID}) => {
       productID
     }
 
-    const res = await fetch('/api/comments',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json'
+    const res = await fetch('/api/comments', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
       },
-      body:JSON.stringify(comment)
+      body: JSON.stringify(comment)
     })
 
-    if(res.status===201){
+    if (res.status === 201) {
       showSwal('دیدگاه شما با موفقیت ثبت شد', 'success', 'تایید')
     }
-  
+
   }
-   
+
 
   return (
     <div className={styles.form}>
@@ -80,18 +100,18 @@ const CommentForm = ({productID}) => {
             نام
             <span style={{ color: "red" }}>*</span>
           </label>
-          <input type="text"  value={username} onChange={(e) => setUsername(e.target.value)}/>
+          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
         </div>
         <div className={styles.group}>
           <label htmlFor="">
             ایمیل
             <span style={{ color: "red" }}>*</span>
           </label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
       </div>
       <div className={styles.checkbox}>
-        <input type="checkbox" name="" id="" />
+        <input type="checkbox" value={isSaveUser} onChange={(event) => setIsSaveUser((prevValue) => !prevValue)} />
         <p>
           {" "}
           ذخیره نام، ایمیل و وبسایت من در مرورگر برای زمانی که دوباره دیدگاهی
