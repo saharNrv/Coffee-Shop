@@ -6,7 +6,6 @@ import swal from "sweetalert";
 import { showSwal } from "@/utils/helperClass";
 
 export default function DataTable({ comments, title }) {
-  console.log('comments===',comments);
   
   const showCommentBody = (commentBody) => {
     showSwal(commentBody, undefined, "اوکی");

@@ -6,9 +6,7 @@ import { FaRegStar } from "react-icons/fa";
 import { IoMdStar } from "react-icons/io";
 import swal from "sweetalert";
 const Card = ({ price, score, name ,productID}) => {
-
-  console.log(score);
-  
+ 
   
   const removeProduct = () => {
     swal({
@@ -22,7 +20,7 @@ const Card = ({ price, score, name ,productID}) => {
           method:'DELETE'
         })
 
-        console.log(res);
+    
         if(res.status===200){
           showSwal("محصول با موفقیت حذف شد", "success", "تایید")
           location.reload()

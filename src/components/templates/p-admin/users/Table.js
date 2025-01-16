@@ -15,7 +15,7 @@ export default function DataTable({ users, title }) {
       },
       body: JSON.stringify({id : userID})
     })
-    console.log(res);
+    
     if(res.status === 200){
       swal({
         title:"نقش کاربر با موفقیت تغییر کرد",

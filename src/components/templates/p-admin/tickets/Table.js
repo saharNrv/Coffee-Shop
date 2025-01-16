@@ -33,7 +33,7 @@ export default function DataTable({ tickets, title }) {
         body: JSON.stringify(answer)
       })
 
-      console.log(res);
+     
       
 
     })

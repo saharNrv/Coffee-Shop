@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 
 const Tickets = ({tickets}) => {
-  console.log('tickets',tickets);
+ 
   
   return (
     <div className={styles.content}>

@@ -15,7 +15,7 @@ const Login = ({ showRegisterForm }) => {
   const hideOtpForm = () => setIsLoginWithOtp(false)
 
   const signinWithPassword = async () => {
-    console.log('log in');
+   
     if (!emailOrPhone) {
       return showSwal('لطفا شماره تماس یل ایمیل را وارد کنید', 'error', 'تلاش مجدد')
     }
@@ -42,7 +42,7 @@ const Login = ({ showRegisterForm }) => {
       },
       body:JSON.stringify(user)
     })
-    console.log('res=>',res);
+    
 
     if(res.status===200){
       swal({

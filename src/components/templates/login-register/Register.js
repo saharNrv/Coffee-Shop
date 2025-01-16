@@ -52,7 +52,7 @@ const Register = ({ showloginForm }) => {
       },
       body: JSON.stringify(newUser)
     })
-    console.log(res);
+   
     if (res.status === 201) {
       showSwal("ثبت نام با موفقیت انجام شد", "success", "ورود به پنل کاربری")
       

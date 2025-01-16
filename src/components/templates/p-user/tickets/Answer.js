@@ -1,8 +1,6 @@
 import styles from "./answer.module.css";
 
 const Answer = ({ type, title, body, createdAt,user}) => {
-  // console.log('user',_id);
-  
   
   
   return (
