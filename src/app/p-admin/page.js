@@ -11,6 +11,7 @@ import ProductModel from "@/models/Product";
 import connectToDB from "@/configs/db";
 import SaleChart from "@/components/templates/p-admin/index/SaleChart";
 import GrowthChart from "@/components/templates/p-admin/index/GrowthChart";
+import AddProduct from "@/components/templates/p-admin/products/AddProduct";
 
 async function AdminHomePage() {
   connectToDB();
@@ -21,6 +22,7 @@ async function AdminHomePage() {
   return (
     <AdminPanelLayout>
       <main>
+        
         <section className={styles.dashboard_contents}>
           <Box title="مجموع تیکت های دریافتی" value={tickets.length} />
           <Box title="مجموع محصولات سایت" value={products.length} />
