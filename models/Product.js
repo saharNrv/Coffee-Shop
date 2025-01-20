@@ -34,11 +34,16 @@ const productSchema = new mongoose.Schema({
     },
     score: {
         type: Number,
-        required:false
+        default:5,
+        
        
     },
     tags: {
         type: [String],
+        required: true
+    },
+    img: {
+        type: String,
         required: true
     },
     comments: {
