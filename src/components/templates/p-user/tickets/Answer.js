@@ -11,8 +11,8 @@ const Answer = ({ type, title, body, createdAt,user}) => {
         <p> {new Date(createdAt).toLocaleDateString("fa-IR")}</p>
         <div>
           <div>
-            <p>{'user.name'}</p>
-            <span>کاربر</span>
+            <p>{user.name}</p>
+            <span>{type==="user"?"کاربر":"مدیر"}</span>
           </div>
           <img src="/images/shahin.jpg" alt="" />
         </div>

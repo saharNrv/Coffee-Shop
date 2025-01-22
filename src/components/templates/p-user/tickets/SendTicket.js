@@ -55,6 +55,8 @@ function sentTicket() {
       body: JSON.stringify(ticket),
     });
 
+    console.log(' send ticket=>',res);
+    
     if (res.status === 201) {
       swal({
         title: "تیکت شما با موفقیت ثبت شد",
